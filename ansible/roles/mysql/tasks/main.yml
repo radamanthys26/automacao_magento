@@ -1,0 +1,45 @@
+---
+- name: Instalando o Python PIP
+  become: yes
+  apt:
+    name: python3-pip
+    update_cache: yes
+
+- name: Instalando pacote do Python - PyMySQL
+  become: yes
+  pip:
+    name: PyMySQL
+
+- name: Instalando mysql-server
+  become: yes
+  apt: name=mysql-server state=present
+
+- name: Iniciando o serviço mysql
+  become: yes
+  service:
+    name: mysql
+    state: started
+    enabled: True
+
+- name: Alterando o plugin auth.socket para mysql_native_password e adicionando uma senha ao mysql
+  become: yes
+  ignore_errors: yes
+  ansible.builtin.shell: mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Teste@123';"
+
+- name: Criando o usuário magento2 com a senha teste123
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: Teste@123
+    name: magento2
+    password: teste123
+    priv: '*.*:ALL'
+    state: present
+
+- name: Criando o banco de dados magento2
+  community.mysql.mysql_db:
+    check_implicit_admin: yes
+    login_user: root
+    login_password: Teste@123
+    name: magento2
+    state: present
+...

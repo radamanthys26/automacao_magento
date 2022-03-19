@@ -1,0 +1,7 @@
+---
+- name: Playbook de instalação do Magento 2.3.4 e seus requisitos
+  hosts: all
+  become: no
+  become_method: sudo
+  roles:
+    - mysql
