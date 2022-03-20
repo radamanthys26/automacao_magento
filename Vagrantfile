@@ -18,11 +18,14 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
     ansible.verbose = "vvv"
-    end
-  
-#  config.vm.provision "shell", inline: <<-SHELL
-#    echo "sudo su -" >> .bashrc
-#  SHELL
+  end
 
+  # Configurações da extras
+  config.vm.provision "shell", inline: <<-SHELL
+    #echo "sudo su -" >> .bashrc
+    echo $'[all] \n192.168.33.25' > /etc/ansible/hosts
+    echo $'[defaults] \nhost_key_checking = false' > /etc/ansible/ansible.cfg
+    #ssh-keygen -t rsa
 
+  SHELL
 end
