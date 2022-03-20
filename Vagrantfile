@@ -25,7 +25,5 @@ Vagrant.configure(2) do |config|
     #echo "sudo su -" >> .bashrc
     echo $'[all] \n192.168.33.25' > /etc/ansible/hosts
     echo $'[defaults] \nhost_key_checking = false' > /etc/ansible/ansible.cfg
-    #ssh-keygen -t rsa
-
   SHELL
 end

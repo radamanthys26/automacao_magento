@@ -4,5 +4,6 @@
   become: no
   become_method: sudo
   roles:
-    - configs
-    - mysql
+    #- configs
+    #- mysql
+    - php
