@@ -6,4 +6,5 @@
   roles:
     #- configs
     #- mysql
-    - php
+    #- php
+    - nginx

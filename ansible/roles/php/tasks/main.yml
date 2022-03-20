@@ -25,6 +25,10 @@
     - php7.3-zip
     - zip
     - unzip
+    - curl
+    - gnupg2
+    - ca-certificates
+    - lsb-release
 
 - name: Iniciando serviço PHP FPM
   service:

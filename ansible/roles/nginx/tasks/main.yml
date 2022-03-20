@@ -1,0 +1,28 @@
+- name: Instalando webserver nginx
+  become: yes
+  apt: name=nginx state=present
+
+- name: Iniciando o serviço mysql
+  become: yes
+  service:
+    name: nginx
+    state: started
+    enabled: True
+
+- name: Configurando o arquivo /etc/nginx/conf.d/magento.conf
+  become: yes
+  ansible.builtin.copy:
+    dest: /etc/nginx/conf.d/magento.conf
+    content: |
+     upstream fastcgi_backend {
+     server  unix:/run/php/php7.3-fpm.sock;
+     }
+
+     server {
+
+     listen 80;
+     server_name _;
+     set $MAGE_ROOT /var/www/magento2;
+     include /var/www/magento2/nginx.conf.sample;
+     }
+...
