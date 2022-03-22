@@ -1,6 +1,6 @@
-# Projeto de instalação do Magento usando Ansible, Nginx, Vagrant
+## Projeto de instalação do Magento usando Ansible, Nginx, Vagrant
 ### Instalação totalmente automatizada!
-## Como testar
+### Como testar
 
 - Instale o Virtualbox e o Vagrant;
 - Baixe os arquivo ou faça um git clone;
