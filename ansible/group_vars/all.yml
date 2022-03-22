@@ -1,0 +1,32 @@
+---
+# Server configuration
+timezone: America/Chicago
+
+# Nginx configuration
+server_hostname: 192.168.33.25
+magento_dir: /var/www/magento2
+
+# Database configuration
+db_host: localhost
+db_name: magento2
+db_user: magento2
+db_password: teste123
+
+# Magento configuration
+magento_public_key: f2a5295522677fba5351f4bb278dbcff
+magento_private_key: 02271048cbd9803ff233d3996db08f11
+
+magento_mode: default
+
+base_url: http://192.168.33.25
+use_rewrites: 1
+
+language: en_US
+currency: USD
+
+backend_frontname: admin
+admin_firstname: admin
+admin_lastname: admin
+admin_email: admin@admin.com
+admin_user: admin
+admin_password: admin123
